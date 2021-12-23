@@ -1,22 +1,4 @@
 import React from "react";
-// import { Box, TextField, Typography } from "@mui/material";
-
-// const Header = () => {
-//   return (
-//     <Box
-//       sx={{
-//         backgroundColor: "lightgreen",
-//         width: "100%",
-//       }}
-//     >
-//       Job Search
-//       <TextField id="standard-basic" label="Standard" variant="standard" />
-//     </Box>
-//   );
-// };
-
-// export default Header;
-
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -70,7 +52,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="success" sx={{ borderRadius: 1 }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "#0e1926", borderBottom: "1px solid #fff" }}
+      >
         <Toolbar>
           <Typography
             variant="h6"
