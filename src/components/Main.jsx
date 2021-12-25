@@ -1,8 +1,8 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import { Typography, TextField, Chip, Container } from "@mui/material";
+import React, { useState } from "react";
+import axios from "axios";
+import { Box, Typography, TextField, Chip, Container } from "@mui/material";
 
-const Main = () => {
+const Main = ({ setSearchInput }) => {
   return (
     <Box
       sx={{
@@ -22,15 +22,22 @@ const Main = () => {
           id="standard-basic"
           label="Search..."
           variant="outlined"
-        />{" "}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
       </Container>
       <br />
-      <Chip sx={{ marginRight: 2, backgroundColor: "#fff" }} label="Remote" />
       <Chip
-        sx={{ marginRight: 2, backgroundColor: "#fff" }}
+        sx={{ marginRight: 2, backgroundColor: "#fff", cursor: "pointer" }}
+        label="Remote"
+      />
+      <Chip
+        sx={{ marginRight: 2, backgroundColor: "#fff", cursor: "pointer" }}
         label="Job types"
       />
-      <Chip sx={{ backgroundColor: "#fff" }} label="Location" />
+      <Chip
+        sx={{ backgroundColor: "#fff", cursor: "pointer" }}
+        label="Location"
+      />
     </Box>
   );
 };

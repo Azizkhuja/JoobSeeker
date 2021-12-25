@@ -118,25 +118,9 @@ import {
 //   },
 // ];
 
-const JobItem = () => {
-  const [data, setData] = useState([]);
-  const [visible, setVisible] = useState(10);
-
-  useEffect(() => {
-    var config = {
-      method: "get",
-      url: "https://arbeitnow.com/api/job-board-api",
-      headers: {},
-    };
-    axios(config)
-      .then(function (response) {
-        // let getOnlyTenItems = response.data.data.slice(0, visible);
-        setData(response.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+const JobItem = ({ data }) => {
+  //   const [data, setData] = useState([]);
+  const [visible, setVisible] = useState(25);
 
   //   const res = data?.map((item) => {
   //     return (
@@ -175,11 +159,11 @@ const JobItem = () => {
   //     );
   //   });
   const loadMoreItems = () => {
-    setVisible((prevValue) => prevValue + 10);
+    setVisible((prevValue) => prevValue + 25);
   };
 
   return (
-    <List>
+    <List sx={{ textAlign: "center" }}>
       {data.slice(0, visible).map((item) => {
         return (
           <div key={item.slug}>
@@ -216,7 +200,9 @@ const JobItem = () => {
           </div>
         );
       })}
-      <Button onClick={loadMoreItems}>Load more</Button>
+      <Button onClick={loadMoreItems} variant="contained" sx={{ marginTop: 2 }}>
+        Load more
+      </Button>
     </List>
   );
 };

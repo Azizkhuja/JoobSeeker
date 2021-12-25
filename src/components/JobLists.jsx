@@ -1,10 +1,10 @@
 import { Container } from "@mui/material";
 import JobItem from "./JobItem";
 
-const JobLists = () => {
+const JobLists = ({ data }) => {
   return (
     <Container>
-      <JobItem />
+      <JobItem data={data} />
     </Container>
   );
 };
