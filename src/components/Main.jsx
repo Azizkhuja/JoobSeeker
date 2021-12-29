@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
 import { Box, Typography, TextField, Chip, Container } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Main = ({ setSearchInput }) => {
+  const typo = useMediaQuery("(max-width:600px)");
   return (
     <Box
       sx={{
@@ -12,7 +12,7 @@ const Main = ({ setSearchInput }) => {
         paddingBottom: 2,
       }}
     >
-      <Typography variant="h4" mb={2} color="#fff">
+      <Typography variant={typo ? "h6" : "h4"} mb={2} color="#fff">
         Top European IT Job Board.
       </Typography>
       <Container>
@@ -25,19 +25,6 @@ const Main = ({ setSearchInput }) => {
           onChange={(e) => setSearchInput(e.target.value)}
         />
       </Container>
-      <br />
-      <Chip
-        sx={{ marginRight: 2, backgroundColor: "#fff", cursor: "pointer" }}
-        label="Remote"
-      />
-      <Chip
-        sx={{ marginRight: 2, backgroundColor: "#fff", cursor: "pointer" }}
-        label="Job types"
-      />
-      <Chip
-        sx={{ backgroundColor: "#fff", cursor: "pointer" }}
-        label="Location"
-      />
     </Box>
   );
 };
